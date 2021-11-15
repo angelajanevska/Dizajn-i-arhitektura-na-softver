@@ -1,0 +1,1 @@
+osmfilter mapMk.osm --keep="shop=computer" | osmconvert64-0.8.8p - --all-to-nodes --csv="@id @lat @lon name city street phone website brand opening_hours repair" --csv-headline --csv-separator="," -o="data.csv"
