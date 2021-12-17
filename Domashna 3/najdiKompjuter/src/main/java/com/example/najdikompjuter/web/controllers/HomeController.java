@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.*;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/")
@@ -41,18 +42,13 @@ public class HomeController {
         return "mapa";
     }
 
-    @GetMapping("/details")
-    public String details(Model model) throws IOException, CsvValidationException {
-        return "details";
+    @GetMapping("/details/{id}")
+    public String details(@PathVariable String id, Model model){
+        if(this.companyService.findByID(id).isPresent()){
+            Company company = this.companyService.findByID(id).get();
+            model.addAttribute("company", company);
+            return "details";
+        }
+        return "redirect:/company?error=CompanyNotFound";
     }
-
-//    @GetMapping("/pc/details/{id}")
-//    public String details(@PathVariable String id, Model model){
-//        if(this.companyService.findByID(id).isPresent()){
-//            Company company = this.companyService.findByID(id).get();
-//            model.addAttribute("company", company);
-//            return "details";
-//        }
-//        return "redirect:/company?error=CompanyNotFound";
-//    }
 }
