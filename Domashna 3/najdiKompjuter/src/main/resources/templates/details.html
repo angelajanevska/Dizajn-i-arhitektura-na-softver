@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Детали</title>
@@ -42,14 +42,21 @@
         .card-text{
             padding: 0;
             margin: 0;
+            color: deepskyblue;
         }
         .btn{
             float: right;
         }
         .card-body{
             padding: 10px;
+            margin-left: 15%;
+            position: absolute;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
         }
         .card{
+            height: 300px;
             margin: 5px;
             padding: 5px;
             display: flex;
@@ -58,43 +65,28 @@
     </style>
 </head>
 <body>
-<!--<div class="card">-->
-<!--    <div class="card-horizontal">-->
-<!--        <div class="img-square-wrapper">-->
-<!--            <img th:src="@{images/logo.png}" alt="" class="float-left">-->
-<!--        </div>-->
-<!--        <div class="card-body">-->
-<!--            <h5 class="card-title" th:text="${company.getName()}"></h5>-->
-<!--            <p class="card-text" th:text="${company.getCity()}"></p>-->
-<!--            <p class="card-text" th:text="${company.getStreet()}"></p>-->
-<!--            <p class="card-text"><a th:href="${company.getWebsite()}"  th:text="${company.getWebsite()}"></a></p>-->
-<!--            <p class="card-text" th:text="${company.getPhone()}"></p>-->
-<!--            <p class="card-text" th:text="${company.getBrand()}"></p>-->
-<!--            <p class="card-text" th:text="${company.getRepair()}"></p>-->
-<!--            <p class="card-text" th:text="${company.getOpeningHours()}"></p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 <nav id="nav" class="navbar justify-content-center navbar-expand-sm bg-info navbar-dark">
     <a class="navbar-brand active" th:href="@{/}">Почетна</a>
     <a class="navbar-brand active" th:href="@{/najdi-kompjuter}">Најди компјутер</a>
     <a class="navbar-brand active" th:href="@{/mapa}">Мапа</a>
     <a class="navbar-brand active" th:href="@{/za-nas}">За нас</a>
 </nav>
+<div class="img-div">
+</div>
 <div class="card">
     <div class="card-horizontal">
         <div class="img-square-wrapper">
-            <img style="width: 200px" th:src="@{images/logo.png}" alt="" class="float-left">
+            <img style="width: 250px; margin-bottom: 10px;" th:src="@{/images/logo.png}" alt="" class="float-left">
         </div>
         <div class="card-body">
-            <h5 class="card-title">Anhoch Bitola</h5>
-            <p class="card-text">Битола</p>
-            <p class="card-text">Широк Сокак 61</p>
-            <p class="card-text"><a href="https://www.anhoch.com/">https://www.anhoch.com/</a></p>
-            <p class="card-text">047273 951</p>
-            <p class="card-text">All</p>
-            <p class="card-text">Repair</p>
-            <p class="card-text">Mo-Su 09:00-21:00</p>
+            <h3 class="card-title" th:text="${company.getName()}"></h3>
+            <p th:if="${company.getCity()!= ' '}"><b>Град: </b><span class="card-text" th:text="${company.getCity()}"></span></p>
+            <p th:if="${company.getStreet()!= ' '}"><b>Адреса: </b><span class="card-text" th:text="${company.getStreet()}"></span></p>
+            <p th:if="${company.getWebsite()!= ' '}"><b>Веб страна: </b><span class="card-text"><a th:href="${company.getWebsite()}"  th:text="${company.getWebsite()}"></a></span></p>
+            <p th:if="${company.getPhone()!= ' '}"><b>Телефонски број: </b><span class="card-text" th:text="${company.getPhone()}"></span></p>
+            <p th:if="${company.getBrand() != ' '}"><b>Брендови достапни во продавницата: </b><span class="card-text" th:text="${company.getBrand()}"></span></p>
+            <p th:if="${company.getRepair()!= '  '}"><b>Дали продавницата врши поправка: </b><span class="card-text" th:text="${company.getRepair()}"></span></p>
+            <p th:if="${company.getOpeningHours()!= ' '}"><b>Работно време: </b><span class="card-text" th:text="${company.getOpeningHours()}"></span>
         </div>
     </div>
 </div>

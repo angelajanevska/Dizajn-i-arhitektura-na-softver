@@ -31,4 +31,5 @@ public class CompanyServiceImplementation implements CompanyService{
     public Optional<Company> findByID(String id) {
         return this.companyRepository.findByID(id);
     }
+
 }
