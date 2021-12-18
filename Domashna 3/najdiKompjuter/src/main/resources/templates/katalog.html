@@ -107,7 +107,7 @@
                             <p class="card-text" th:text="${company.getPhone()}"></p>
                             <p class="card-text" th:text="${company.getOpeningHours()}"></p>
 <!--                            <a href="" class="btn btn-outline-info btn-sm" th:href="@{'/details/{id}'}">More details</a>-->
-                            <a class="btn btn-outline-info btn-sm" th:href="@{/details}">More details</a>
+                            <a class="btn btn-outline-info btn-sm" th:href="@{'/details/{id}'  (id=${company.getId()})}">More details</a>
                         </div>
                     </div>
                 </div>
