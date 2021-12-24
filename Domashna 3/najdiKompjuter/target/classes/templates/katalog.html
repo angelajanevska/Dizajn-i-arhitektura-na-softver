@@ -89,11 +89,12 @@
         <option value="prilep">Прилеп</option>
         <option value="ohrid">Охрид</option>
     </select>
-    <button name="filter" class="btn-info btn-md">Барај</button>
+<!--    <a class="btn-info btn-md" th:href="@{'/najdi-kompjuter/{city}'  (city=${})}">Барај</a>-->
+    <a class="btn-info btn-md" th:href="@{'/najdi-kompjuter/{city}'}">Барај</a>
 </section>
 <section id="gallery">
     <div class="container">
-        <img th:src="@{images/banner.png}" alt="" class="img-fluid max-width:30%">
+        <img th:src="@{images/banner.png}" alt="" class="img-fluid" style="max-width:80%; display:block;margin-left:auto;margin-right:auto;">
         <div class="row">
             <div class="col-md-4  mb-5" th:each="company : ${companies}">
                 <div class="card">
@@ -106,8 +107,7 @@
                             <p class="card-text" th:text="${company.getCity()}"></p>
                             <p class="card-text" th:text="${company.getPhone()}"></p>
                             <p class="card-text" th:text="${company.getOpeningHours()}"></p>
-<!--                            <a href="" class="btn btn-outline-info btn-sm" th:href="@{'/details/{id}'}">More details</a>-->
-                            <a class="btn btn-outline-info btn-sm" th:href="@{/details}">More details</a>
+                            <a class="btn btn-outline-info btn-sm" th:href="@{'/details/{id}'  (id=${company.getId()})}">More details</a>
                         </div>
                     </div>
                 </div>
