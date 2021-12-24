@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"><head>
     <meta charset="UTF-8">
     <title>Мапа</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -14,14 +12,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+
     <style>
-        body{
-            background-color: #e5e5f7;
-            opacity: 0.8;
-            background-size: 6px 6px;
-            background-image: repeating-linear-gradient(45deg, #79cbf7 0, #79cbf7 0.6000000000000001px, #e5e5f7 0, #e5e5f7 50%);
-            font-family: "Segoe UI", sans-serif;
-        }
+        /*body{*/
+        /*    background-color: #e5e5f7;*/
+        /*    opacity: 0.8;*/
+        /*    background-size: 6px 6px;*/
+        /*    background-image: repeating-linear-gradient(45deg, #79cbf7 0, #79cbf7 0.6000000000000001px, #e5e5f7 0, #e5e5f7 50%);*/
+        /*    font-family: "Segoe UI", sans-serif;*/
+        /*}*/
         .navbar a.active {
             font-weight: bold;
         }
@@ -55,8 +61,28 @@
     <a class="navbar-brand active" th:href="@{/mapa}">Мапа</a>
     <a class="navbar-brand notactive" th:href="@{/za-nas}">За нас</a>
 </nav>
-<iframe width="600px" height="600px" src="https://www.openstreetmap.org/export/embed.html?bbox=21.049804687500004%2C41.8429275884508%2C21.692504882812504%2C42.177614054538324&amp%3Blayer=mapnik&amp%3Bmarker=42.01049094173177%2C21.37115478515625%5C"
-        style="border: 1px solid black; position:absolute; top:50%;left:50%; transform: translate(-50%,-50%);">
-</iframe>
+<!--<iframe width="600px" height="600px" src="https://www.openstreetmap.org/export/embed.html?bbox=21.049804687500004%2C41.8429275884508%2C21.692504882812504%2C42.177614054538324&amp%3Blayer=mapnik&amp%3Bmarker=42.01049094173177%2C21.37115478515625%5C"-->
+<!--        style="border: 1px solid black; position:absolute; top:50%;left:50%; transform: translate(-50%,-50%);">-->
+<!--</iframe>-->
+<div id="map" style="width:100%;height:400px;"></div>
+
+<script th:inline="javascript" type="text/javascript">
+
+    map = document.getElementById("map");
+    console.log("ok");
+
+    var map = L.map('map').setView([42.1094,21.1951],10);
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png' , {
+        attribution: '&copy;<a href="http://osm.org/copyright%22%EOpenStreetMap</a> contributors"'
+    }).addTo(map);
+
+    var computerShop = [[${companies}]];
+
+    for(var i=0; i<computerShop.length; i++){
+        var marker = L.marker([computerShop[i].lat, computerShop[i].lon]).addTo(map);
+        marker.bindPopup(computerShop[i].name).openPopup();
+    }
+</script>
 </body>
 </html>

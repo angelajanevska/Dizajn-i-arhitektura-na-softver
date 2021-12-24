@@ -23,8 +23,8 @@ public class CompanyServiceImplementation implements CompanyService{
     }
 
     @Override
-    public Optional<Company> add(String id, String name, String city, String street, String phone, String website, String brand, String openingHours, String repair) {
-        return this.companyRepository.add(id, name, city, street, phone, website, brand, openingHours, repair);
+    public Optional<Company> add(String id, String lat, String lon, String name, String city, String street, String phone, String website, String brand, String openingHours, String repair) {
+        return this.companyRepository.add(id, lat, lon, name, city, street, phone, website, brand, openingHours, repair);
     }
 
     @Override

@@ -39,6 +39,7 @@ public class HomeController {
 
     @GetMapping("/mapa")
     public String mapa(Model model) throws IOException, CsvValidationException {
+        model.addAttribute("companies",companyService.findAll());
         return "mapa";
     }
 

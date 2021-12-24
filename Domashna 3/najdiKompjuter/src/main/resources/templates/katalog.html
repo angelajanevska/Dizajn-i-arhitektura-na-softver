@@ -89,7 +89,8 @@
         <option value="prilep">Прилеп</option>
         <option value="ohrid">Охрид</option>
     </select>
-    <button name="filter" class="btn-info btn-md">Барај</button>
+<!--    <a class="btn-info btn-md" th:href="@{'/najdi-kompjuter/{city}'  (city=${})}">Барај</a>-->
+    <a class="btn-info btn-md" th:href="@{'/najdi-kompjuter/{city}'}">Барај</a>
 </section>
 <section id="gallery">
     <div class="container">

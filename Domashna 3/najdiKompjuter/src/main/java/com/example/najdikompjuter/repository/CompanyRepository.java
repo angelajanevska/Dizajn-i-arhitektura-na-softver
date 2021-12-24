@@ -23,7 +23,7 @@ public class CompanyRepository {
         reader.readNext();
         while((data = reader.readNext()) != null){
             elements = Arrays.toString(data).split(",");
-            Company company = new Company(elements[0].replace('[',' '),elements[3],elements[4],elements[5],elements[6],elements[7],elements[8],elements[9],elements[10].replace(']',' '));
+            Company company = new Company(elements[0].replace('[',' '),elements[1], elements[2], elements[3],elements[4],elements[5],elements[6],elements[7],elements[8],elements[9],elements[10].replace(']',' '));
             companyList.add(company);
         }
     }
@@ -33,8 +33,8 @@ public class CompanyRepository {
         return companyList;
     }
 
-    public Optional<Company> add(String id, String name, String city, String street, String phone, String website, String brand, String openingHours, String repair){
-        Company company = new Company(id, name, city, street, phone, website, brand, openingHours, repair);
+    public Optional<Company> add(String id, String lat, String lon, String name, String city, String street, String phone, String website, String brand, String openingHours, String repair){
+        Company company = new Company(id, lat, lon, name, city, street, phone, website, brand, openingHours, repair);
         companyList.add(company);
         return Optional.of(company);
     }
