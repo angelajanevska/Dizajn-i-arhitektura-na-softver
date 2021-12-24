@@ -76,9 +76,9 @@
 <div class="card">
     <div class="card-horizontal">
         <div class="img-square-wrapper">
-            <img style="width: 250px; margin-bottom: 10px;" th:src="@{/images/logo.png}" alt="" class="float-left">
+            <img style="width: 250px; margin-bottom: 10px; margin-right: 10px;" th:src="@{/images/logo.png}" alt="" class="float-left">
         </div>
-        <div class="card-body">
+        <div class="card-body" style="padding-left: 50px">
             <h3 class="card-title" th:text="${company.getName()}"></h3>
             <p th:if="${company.getCity()!= ' '}"><b>Град: </b><span class="card-text" th:text="${company.getCity()}"></span></p>
             <p th:if="${company.getStreet()!= ' '}"><b>Адреса: </b><span class="card-text" th:text="${company.getStreet()}"></span></p>
