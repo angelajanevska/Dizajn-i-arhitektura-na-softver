@@ -21,13 +21,6 @@
             crossorigin=""></script>
 
     <style>
-        /*body{*/
-        /*    background-color: #e5e5f7;*/
-        /*    opacity: 0.8;*/
-        /*    background-size: 6px 6px;*/
-        /*    background-image: repeating-linear-gradient(45deg, #79cbf7 0, #79cbf7 0.6000000000000001px, #e5e5f7 0, #e5e5f7 50%);*/
-        /*    font-family: "Segoe UI", sans-serif;*/
-        /*}*/
         .navbar a.active {
             font-weight: bold;
         }
@@ -61,17 +54,14 @@
     <a class="navbar-brand active" th:href="@{/mapa}">Мапа</a>
     <a class="navbar-brand notactive" th:href="@{/za-nas}">За нас</a>
 </nav>
-<!--<iframe width="600px" height="600px" src="https://www.openstreetmap.org/export/embed.html?bbox=21.049804687500004%2C41.8429275884508%2C21.692504882812504%2C42.177614054538324&amp%3Blayer=mapnik&amp%3Bmarker=42.01049094173177%2C21.37115478515625%5C"-->
-<!--        style="border: 1px solid black; position:absolute; top:50%;left:50%; transform: translate(-50%,-50%);">-->
-<!--</iframe>-->
-<div id="map" style="width:100%;height:400px;"></div>
+<div id="map" style="width:100%;height:100%;"></div>
 
 <script th:inline="javascript" type="text/javascript">
 
     map = document.getElementById("map");
     console.log("ok");
 
-    var map = L.map('map').setView([42.1094,21.1951],10);
+    var map = L.map('map').setView([41.513,21.792],9);
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png' , {
         attribution: '&copy;<a href="http://osm.org/copyright%22%EOpenStreetMap</a> contributors"'
