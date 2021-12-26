@@ -24,6 +24,7 @@
         .navbar {
             text-decoration: none;
             font-family: "Yu Gothic UI", ui-serif;
+            background-color: lightskyblue;
         }
         .navbar a{
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -68,7 +69,7 @@
 
 </head>
 <body>
-<nav id="nav" class="navbar justify-content-center navbar-expand-sm bg-info navbar-dark">
+<nav id="nav" class="navbar justify-content-center navbar-expand-sm navbar-dark">
     <a class="navbar-brand notactive" th:href="@{/}">Почетна</a>
     <a class="navbar-brand active" th:href="@{/najdi-kompjuter}">Најди компјутер</a>
     <a class="navbar-brand notactive" th:href="@{/mapa}">Мапа</a>
@@ -89,7 +90,7 @@
         <option value="Прилеп">Прилеп</option>
         <option value="Охрид">Охрид</option>
     </select>
-    <button type="submit" class="btn btn-info btn-sm" style="width: 80px; margin-left: 3px">Барај</button>
+    <button type="submit" class="btn btn-primary btn-sm" style="width: 80px; margin-left: 3px">Барај</button>
 </form>
 <section id="gallery">
     <div class="container">
