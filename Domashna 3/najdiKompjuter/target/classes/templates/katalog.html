@@ -76,22 +76,21 @@
 </nav>
 <br>
 <h5 style="margin: 0 0 10px 10px;">Пребарајте ги продавниците за компјутерска опрема во вашиот град.</h5>
-<section id="filter">
+<form id="filter" th:method="get" th:action="@{/shop-in-city}">
     <label for="select-city">Град: </label>
-    <select id="select-city">
+    <select id="select-city" name="city">
         <option value="" disabled selected hidden>Избери..</option>
-        <option value="skopje">Битола</option>
-        <option value="veles">Велес</option>
-        <option value="gostivar">Гостивар</option>
-        <option value="gevgelija">Гевгелија</option>
-        <option value="skopje">Скопје</option>
-        <option value="strumica">Струмица</option>
-        <option value="prilep">Прилеп</option>
-        <option value="ohrid">Охрид</option>
+        <option value="Битола">Битола</option>
+        <option value="Велес">Велес</option>
+        <option value="Гостивар">Гостивар</option>
+        <option value="Гевгелија">Гевгелија</option>
+        <option value="Скопје">Скопје</option>
+        <option value="Струмица">Струмица</option>
+        <option value="Прилеп">Прилеп</option>
+        <option value="Охрид">Охрид</option>
     </select>
-<!--    <a class="btn-info btn-md" th:href="@{'/najdi-kompjuter/{city}'  (city=${})}">Барај</a>-->
-    <a class="btn-info btn-md" th:href="@{'/najdi-kompjuter/{city}'}">Барај</a>
-</section>
+    <button type="submit" class="btn btn-info btn-md">Барај</button>
+</form>
 <section id="gallery">
     <div class="container">
         <img th:src="@{images/banner.png}" alt="" class="img-fluid" style="max-width:80%; display:block;margin-left:auto;margin-right:auto;">

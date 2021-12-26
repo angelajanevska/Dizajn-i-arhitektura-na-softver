@@ -11,4 +11,5 @@ public interface CompanyService {
     public List<Company> findAll();
     public Optional<Company> findByID(String id);
     public Optional<Company> add(String id, String lat, String lon, String name, String city, String street, String phone, String website, String brand, String openingHours, String repair);
+    public List<Company> findAllByCity(String city);
 }

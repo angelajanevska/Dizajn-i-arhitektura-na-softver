@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Repository
 public class CompanyRepository {
@@ -41,5 +42,9 @@ public class CompanyRepository {
 
     public Optional<Company> findByID(String id){
         return companyList.stream().filter(i->i.getId().equals(id)).findFirst();
+    }
+
+    public List<Company> findAllByCity(String city){
+        return companyList.stream().filter(c->c.getCity().contains(city)).collect(Collectors.toList());
     }
 }

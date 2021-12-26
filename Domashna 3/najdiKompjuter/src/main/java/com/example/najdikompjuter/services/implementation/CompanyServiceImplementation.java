@@ -32,4 +32,8 @@ public class CompanyServiceImplementation implements CompanyService{
         return this.companyRepository.findByID(id);
     }
 
+    @Override
+    public List<Company> findAllByCity(String city){
+        return this.companyRepository.findAllByCity(city);
+    }
 }
