@@ -1,17 +1,12 @@
 package com.example.najdikompjuter.web.controllers;
 
-import com.example.najdikompjuter.company.Company;
 import com.example.najdikompjuter.services.implementation.CompanyService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-import java.util.Objects;
-
 @Controller
-//@RequestMapping()
 public class CityController {
     private final CompanyService companyService;
 
@@ -21,9 +16,54 @@ public class CityController {
 
     @GetMapping("/shop-in-city")
     public String filterByCity(@RequestParam String city, Model model){
-        if(Objects.equals(city, "all")) model.addAttribute("companies",companyService.findAll());
-        else model.addAttribute("companies",companyService.findAllByCity(city));
+        model.addAttribute("companies",companyService.findAllByCity(city));
         model.addAttribute("city",city);
+
+        switch (city){
+            case "Битола":{
+                model.addAttribute("lat",41.0307);
+                model.addAttribute("lon",21.3235);
+                break;
+            }
+            case "Велес":{
+                model.addAttribute("lat",41.7180);
+                model.addAttribute("lon",21.7790);
+                break;
+            }
+            case "Гостивар":{
+                model.addAttribute("lat",41.7170);
+                model.addAttribute("lon",20.9050);
+                break;
+            }
+            case "Гевгелија":{
+                model.addAttribute("lat",41.1444);
+                model.addAttribute("lon",22.5049);
+                break;
+            }
+            case "Скопје":{
+                model.addAttribute("lat",41.9980);
+                model.addAttribute("lon",21.4590);
+                break;
+            }
+            case "Струмица":{
+                model.addAttribute("lat",41.4012);
+                model.addAttribute("lon",22.6400);
+                break;
+            }
+            case "Прилеп":{
+                model.addAttribute("lat",41.3466);
+                model.addAttribute("lon",21.5547);
+                break;
+            }
+            case "Охрид":{
+                model.addAttribute("lat",41.1206);
+                model.addAttribute("lon",20.8033);
+                break;
+            }
+            case "all":{
+                return "redirect:/najdi-kompjuter";
+            }
+        }
         return "shops-in-city";
     }
 }
