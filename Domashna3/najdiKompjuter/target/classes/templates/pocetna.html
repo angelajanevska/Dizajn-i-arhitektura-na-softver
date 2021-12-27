@@ -31,6 +31,7 @@
         }
         #content-left{
             margin-top: 200px;
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -39,9 +40,9 @@
     <div class="media-body" id="content-left">
         <h3 class="media-heading">Сите компјутерски продавници во вашиот град на дланка - НајдиКомпјутер!</h3>
         <p>Апликацијата Ви нуди лесно пребарување на компјутерски продавници во Македонија и преглед на сите потребни информации за истите.</p>
-        <a class="btn btn-md btn-primary" th:href="@{/najdi-kompjuter}">Пребарувај продавници</a>
-        <a class="btn btn-md btn-primary"  th:href="@{/mapa}">Погледни мапа на продавници</a>
-        <a class="btn btn-md btn-primary"  th:href="@{/za-nas}">Прочитај повеќе за нас</a>
+        <a class="btn btn-md btn-primary" style="margin: 2px" th:href="@{/najdi-kompjuter}">Пребарувај продавници</a>
+        <a class="btn btn-md btn-primary" style="margin: 2px" th:href="@{/mapa}">Погледни мапа на продавници</a>
+        <a class="btn btn-md btn-primary" style="margin: 2px" th:href="@{/za-nas}">Прочитај повеќе за нас</a>
     </div>
     <div class="media-right" id="content-right">
         <img th:src="@{images/logo.png}" alt="" class="img-fluid" style="max-width:500px !important;">
