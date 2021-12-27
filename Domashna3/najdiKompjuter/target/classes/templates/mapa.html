@@ -1,0 +1,79 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>Мапа</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+
+    <style>
+        .navbar a.active {
+            font-weight: bold;
+        }
+        .navbar a.notactive{
+            opacity: 40%;
+        }
+        .navbar {
+            text-decoration: none;
+            font-family: "Yu Gothic UI", ui-serif;
+            background-color: lightskyblue;
+        }
+        .navbar a{
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            color: black;
+            font-size: 25px !important;
+            text-decoration: none;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-weight: bold;
+        }
+        .navbar a:hover
+        {
+            opacity:100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<nav id="nav" class="navbar justify-content-center navbar-expand-sm navbar-dark">
+    <a class="navbar-brand notactive" th:href="@{/}">Почетна</a>
+    <a class="navbar-brand notactive" th:href="@{/najdi-kompjuter}">Најди компјутер</a>
+    <a class="navbar-brand active" th:href="@{/mapa}">Мапа</a>
+    <a class="navbar-brand notactive" th:href="@{/za-nas}">За нас</a>
+</nav>
+<div id="map" style="width:100%;height:100%;"></div>
+
+<script th:inline="javascript" type="text/javascript">
+
+    map = document.getElementById("map");
+    console.log("ok");
+
+    var map = L.map('map').setView([41.513,21.792],9);
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png' , {
+        attribution: '&copy;<a href="http://osm.org/copyright%22%EOpenStreetMap</a> contributors"'
+    }).addTo(map);
+
+    var computerShop = [[${companies}]];
+
+    for(var i=0; i<computerShop.length; i++){
+        var marker = L.marker([computerShop[i].lat, computerShop[i].lon]).addTo(map);
+        marker.bindPopup(computerShop[i].name).openPopup();
+    }
+</script>
+</body>
+</html>
