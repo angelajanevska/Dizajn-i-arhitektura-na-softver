@@ -19,48 +19,41 @@ public class CityController {
         model.addAttribute("companies",companyService.findAllByCity(city));
         model.addAttribute("city",city);
 
+//        get coordinates for the selected city
         switch (city){
-            case "Битола":{
-                model.addAttribute("lat",41.0307);
-                model.addAttribute("lon",21.3235);
-                break;
+            case "Битола" -> {
+                model.addAttribute("lat", 41.0307);
+                model.addAttribute("lon", 21.3235);
             }
-            case "Велес":{
-                model.addAttribute("lat",41.7180);
-                model.addAttribute("lon",21.7790);
-                break;
+            case "Велес" -> {
+                model.addAttribute("lat", 41.7180);
+                model.addAttribute("lon", 21.7790);
             }
-            case "Гостивар":{
-                model.addAttribute("lat",41.7170);
-                model.addAttribute("lon",20.9050);
-                break;
+            case "Гостивар" -> {
+                model.addAttribute("lat", 41.7170);
+                model.addAttribute("lon", 20.9050);
             }
-            case "Гевгелија":{
-                model.addAttribute("lat",41.1444);
-                model.addAttribute("lon",22.5049);
-                break;
+            case "Гевгелија" -> {
+                model.addAttribute("lat", 41.1444);
+                model.addAttribute("lon", 22.5049);
             }
-            case "Скопје":{
-                model.addAttribute("lat",41.9980);
-                model.addAttribute("lon",21.4590);
-                break;
+            case "Скопје" -> {
+                model.addAttribute("lat", 41.9980);
+                model.addAttribute("lon", 21.4590);
             }
-            case "Струмица":{
-                model.addAttribute("lat",41.4012);
-                model.addAttribute("lon",22.6400);
-                break;
+            case "Струмица" -> {
+                model.addAttribute("lat", 41.4012);
+                model.addAttribute("lon", 22.6400);
             }
-            case "Прилеп":{
-                model.addAttribute("lat",41.3466);
-                model.addAttribute("lon",21.5547);
-                break;
+            case "Прилеп" -> {
+                model.addAttribute("lat", 41.3466);
+                model.addAttribute("lon", 21.5547);
             }
-            case "Охрид":{
-                model.addAttribute("lat",41.1206);
-                model.addAttribute("lon",20.8033);
-                break;
+            case "Охрид" -> {
+                model.addAttribute("lat", 41.1206);
+                model.addAttribute("lon", 20.8033);
             }
-            case "all":{
+            case "all" -> {
                 return "redirect:/najdi-kompjuter";
             }
         }

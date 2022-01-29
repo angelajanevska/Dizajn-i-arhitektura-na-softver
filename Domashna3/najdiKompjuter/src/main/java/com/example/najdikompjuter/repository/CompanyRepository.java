@@ -13,11 +13,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Repository
-public class CompanyRepository {
+public class CompanyRepository{
     public static List<Company> companyList = new ArrayList<>();
 
     @PostConstruct
     public void init() throws IOException, CsvValidationException {
+        // method for reading the data from csv
         CSVReader reader = new CSVReader(new FileReader("src/main/resources/data.csv"));
         String[] data;
         String[] elements;
@@ -30,6 +31,7 @@ public class CompanyRepository {
     }
 
     public List<Company> findAll(){
+        // listing all computer companies sorted by name
         companyList.sort(new NameSort());
         return companyList;
     }
