@@ -26,12 +26,6 @@ public class HomeController {
         return "pocetna";
     }
 
-    @GetMapping("/najdi-kompjuter")
-    public String catalog(Model model) throws IOException, CsvValidationException {
-        model.addAttribute("companies",companyService.findAll());
-        return "katalog";
-    }
-
     @GetMapping("/za-nas")
     public String contact(Model model) throws IOException, CsvValidationException {
         return "contact";

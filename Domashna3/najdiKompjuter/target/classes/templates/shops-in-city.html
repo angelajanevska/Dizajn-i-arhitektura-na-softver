@@ -108,9 +108,9 @@
     var cityLat=[[${lat}]];
     var cityLon=[[${lon}]];
     var map;
-    if(selectedCity=="Скопје")
+    if(selectedCity==="Скопје")
         map = L.map('map').setView([cityLat,cityLon],12);
-    else if(selectedCity=="Охрид")
+    else if(selectedCity==="Охрид")
         map = L.map('map').setView([cityLat,cityLon],14);
     else map = L.map('map').setView([cityLat,cityLon],15);
 

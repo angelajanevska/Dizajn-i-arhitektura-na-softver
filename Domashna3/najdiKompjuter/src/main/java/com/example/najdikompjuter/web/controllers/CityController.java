@@ -1,10 +1,13 @@
 package com.example.najdikompjuter.web.controllers;
 
 import com.example.najdikompjuter.services.implementation.CompanyService;
+import com.opencsv.exceptions.CsvValidationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.io.IOException;
 
 @Controller
 public class CityController {
@@ -12,6 +15,12 @@ public class CityController {
 
     public CityController(CompanyService companyService) {
         this.companyService = companyService;
+    }
+
+    @GetMapping("/najdi-kompjuter")
+    public String catalog(Model model) throws IOException, CsvValidationException {
+        model.addAttribute("companies",companyService.findAll());
+        return "katalog";
     }
 
     @GetMapping("/shop-in-city")
