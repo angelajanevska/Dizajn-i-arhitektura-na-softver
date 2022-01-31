@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакт</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <style>
+        body{
+            font-family: "Segoe UI", sans-serif;
+            background-image: linear-gradient(to top, #e7f0fd 0%, #accbee 100%);
+            /*background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);*/
+            /*background-image: linear-gradient(to top, #00c3ff 0%, #ffff1c 50%);*/
+            /*background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%);*/
+            background-attachment: fixed;
+        }
+        #content{
+            margin: 100px auto;
+            vertical-align: middle;
+        }
+        #text{
+            text-align: center;
+        }
+        .navbar a.active {
+            font-weight: bold;
+        }
+        .navbar a.notactive{
+            opacity: 40%;
+        }
+        .navbar {
+            text-decoration: none;
+            font-family: "Yu Gothic UI", ui-serif;
+        }
+        .navbar a{
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            color: black;
+            font-size: 25px !important;
+            text-decoration: none;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-weight: bold;
+        }
+        .navbar a:hover
+        {
+            opacity:100%;
+            cursor: pointer;
+        }
+        img,h5{
+            /*display: inline-block;*/
+        }
+    </style>
+</head>
+<body>
+<nav id="nav" class="navbar justify-content-center navbar-expand-sm navbar-dark">
+    <a class="navbar-brand notactive" th:href="@{/}">Почетна</a>
+    <a class="navbar-brand notactive" th:href="@{/najdi-kompjuter}">Најди компјутер</a>
+    <a class="navbar-brand notactive" th:href="@{/mapa}">Мапа</a>
+    <a class="navbar-brand active" th:href="@{/za-nas}">За нас</a>
+</nav>
+<div id="content">
+    <div class="container">
+        <div id="text">
+            <h2>За што служи нашата апликација?</h2>
+            <p style="font-size: 15px; width: 1000px">Нашата платформа служи за помош во пронаоѓање продавница за компјутерска опрема по ваш вкус. <br>Со помош на нашата Каталог алатка Ви нудиме голем број на продавници за компјутерска опрема во Македонија собрани во една лесно читлива и оптимизирана листа која што ги содржи сите потребни информации.</p>
+        </div><br>
+        <div class="card-deck">
+            <div class="col-sm-3">
+                <div class="card border-warning shadow">
+                    <div class="card-body">
+                        <img th:src="@{images/mail.png}" width="40px" class="center-block" alt="mail"/><br>
+                        <br><h5 class="card-title">Испрати мејл</h5>
+                        <a href="mailto:kontakt@najdikompjuter.com">kontakt@najdikompjuter.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="card border-primary shadow">
+                    <div class="card-body">
+                        <img th:src="@{images/team.png}" width="40px" alt="mail"/><br>
+                        <h5 class="card-title text-center">Нашиот тим</h5><br>
+                        <p class="card-text"><b>Ангела Јаневска</b> 193116 &nbsp&nbsp <b>Михаела Ковачевска</b> 191023</p>
+                        <p class="card-text"><b>Горан Блажески</b> 183281 &nbsp &nbsp <b>Бојан Јовановски</b> 191052</p><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card border-danger shadow">
+                    <div class="card-body">
+                        <img th:src="@{images/phone.png}" width="40px" alt="mail"/><br>
+                        <br><h5 class="card-title">Телефонски број</h5>
+                        <p class="card-text text-primary">+389 78 999 999</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
