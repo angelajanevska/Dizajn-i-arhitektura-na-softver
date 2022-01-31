@@ -1,0 +1,8 @@
+<header>
+    <nav id="nav" class="navbar justify-content-center navbar-expand-sm navbar-dark">
+        <a class="navbar-brand" th:classappend="${activeHome} ? active : notactive" th:href="@{/}">Почетна</a>
+        <a class="navbar-brand" th:classappend="${activeKatalog} ? active : notactive" th:href="@{/najdi-kompjuter}">Најди компјутер</a>
+        <a class="navbar-brand" th:classappend="${activeMap} ? active : notactive" th:href="@{/mapa}">Мапа</a>
+        <a class="navbar-brand" th:classappend="${activeContact} ? active : notactive" th:href="@{/za-nas}">За нас</a>
+    </nav>
+</header>
