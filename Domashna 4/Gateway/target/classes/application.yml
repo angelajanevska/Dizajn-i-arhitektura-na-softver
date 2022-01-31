@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: MAP-SERVICE
+          uri: lb://MAP-SERVICE
+          predicates:
+            - Path=/mapa/**
+        - id: COMPUTER-SHOPS-SERVICE
+          uri: lb://COMPUTER-SHOPS-SERVICE
+          predicates:
+            - Path=/shop-in-city/**
+        - id: SHOP-DETAILS-SERVICE
+          uri: lb://SHOP-DETAILS-SERVICE
+          predicates:
+            - Path=/details/**
+        - id: NAJDI-KOMPJUTER
+          uri: lb://NAJDI-KOMPJUTER
+          predicates:
+            - Path=/**
